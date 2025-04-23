@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 
-
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const navLinks = [
@@ -13,15 +12,14 @@ function App() {
   ];
   return (
     <div className="min-h-screen w-full flex flex-col">
-      {/* Mobile Nav Drawer & Overlay */}
-      {/* Overlay */}
+
       {navOpen && (
         <div
           className="fixed inset-0 z-30 bg-black/30 backdrop-blur-sm transition-opacity duration-200 md:hidden"
           onClick={() => setNavOpen(false)}
         />
       )}
-      {/* Drawer */}
+  
       <div
         className={
           `fixed z-40 top-0 left-0 h-full w-64 bg-white shadow-xl transform transition-transform duration-300 md:hidden ` +
@@ -56,9 +54,9 @@ function App() {
           ))}
         </ul>
       </div>
-      {/* Header */}
+  
       <header className="w-full flex flex-col md:flex-row items-center px-4 md:px-12 py-4 bg-white bg-opacity-80 backdrop-blur-lg shadow-sm gap-3 md:gap-0 relative z-10">
-  {/* Logo */}
+
   <div className="flex items-center md:mr-10 mb-2 md:mb-0">
     <div className="rounded-full bg-emerald-500 w-8 h-8 flex items-center justify-center mr-2">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,10 +67,10 @@ function App() {
     <span className="text-xl font-bold text-black">Logoipsum</span>
   </div>
   
-  {/* Empty flex-1 to push nav and button to the right */}
+
   <div className="flex-1"></div>
   
-  {/* Hamburger for mobile */}
+
   <button
     className="md:hidden absolute right-4 top-4 p-2 rounded hover:bg-gray-100"
     aria-label="Open navigation menu"
@@ -85,7 +83,7 @@ function App() {
     </svg>
   </button>
   
-  {/* Menus - Desktop Only - Now aligned to the right */}
+
   <nav className="w-full md:w-auto hidden md:flex">
     <ul className="flex flex-wrap md:flex-nowrap justify-center md:justify-start gap-3 md:gap-8 text-gray-700 font-medium text-base">
       {navLinks.map((item) => (
@@ -96,15 +94,15 @@ function App() {
     </ul>
   </nav>
   
-  {/* Button */}
+
   <button className="border border-emerald-500 text-emerald-500 rounded px-4 py-2 md:px-5 md:py-2 md:ml-6 flex items-center gap-2 w-full md:w-auto justify-center hover:bg-emerald-50 transition mt-2 md:mt-0">
     Get In Touch
     <svg width="17" height="17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h11M9.5 5l4 3.5-4 3.5" stroke="#14b8a6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
   </button>
 </header>
-      {/* Main Section */}
+
       <main className="flex flex-col md:flex-row flex-1 items-center justify-center px-2 sm:px-4 md:px-8 py-8 md:py-20 gap-6 w-full bg-[url('back.png')] bg-cover bg-center" >
-        {/* Left Column */}
+     
         <section className="flex-1 w-full max-w-2xl text-left mb-8 md:mb-0">
           <div className="flex flex-wrap items-center gap-3 mb-3">
             <span className="text-2xl xs:text-3xl md:text-4xl text-emerald-400 font-semibold">HIRE DEDICATED</span>
@@ -124,7 +122,7 @@ function App() {
             </button>
           </div>
         </section>
-        {/* Right Column - Form Card */}
+   
         <section className="bg-white bg-opacity-90 rounded-xl shadow-lg p-4 xs:p-6 md:p-8 w-full xs:w-[370px] md:w-[420px] max-w-full flex flex-col gap-4">
           <h2 className="text-lg xs:text-xl font-bold mb-0 text-gray-900 text-center">Create Your Team</h2>
           <div className="text-gray-500 text-xs xs:text-sm mb-2 text-center">Lorem Ipsum is Simply Dummy Text of The Printing</div>
