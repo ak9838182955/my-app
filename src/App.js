@@ -5,6 +5,7 @@ import back1 from '../src/back1.png';
 import back2 from '../src/back2.png';
 import back3 from '../src/back3.png';
 import back4 from '../src/back4.png';
+import TechnologyCompetency from "./TechnologyCompetency";
 
 function App() {
   const [navOpen, setNavOpen] = useState(false);
@@ -341,7 +342,7 @@ function App() {
           </div>
         </div>
       </div>
-
+  <TechnologyCompetency />
     </div>
 
 
