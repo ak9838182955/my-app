@@ -3,6 +3,9 @@ import ob from '../src/OBJECTS.png';
 import ob1 from '../src/ob2.png';
 import back1 from '../src/back1.png';
 import back2 from '../src/back2.png';
+import back3 from '../src/back3.png';
+import back4 from '../src/back4.png';
+
 function App() {
   const [navOpen, setNavOpen] = useState(false);
   const navLinks = [
@@ -228,109 +231,116 @@ function App() {
 
       {/* Main Wrapper */}
       <div className="relative w-full">
-      {/* Full-width background layer */}
-      <div className="absolute inset-0 -z-10 grid grid-cols-2 grid-rows-2 w-full h-full">
-        <div
-          style={{ backgroundImage: `url(${back1})` }}
-          className="bg-cover bg-left"
-        ></div>
-        <div
-          style={{ backgroundImage: `url(${back2})` }}
-          className="bg-cover bg-right"
-        ></div>
-        <div
-          className="bg-[url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')] 
-          bg-cover bg-center opacity-20"
-        ></div>
-        <div
-          className="bg-[url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')] 
-          bg-cover bg-center opacity-20"
-        ></div>
-      </div>
+        {/* Full-width background layer */}
+        <div className="absolute inset-0 -z-10 grid grid-cols-2 grid-rows-2 w-full h-full">
+          <div
+            style={{ backgroundImage: `url(${back1})` }}
+            className="bg-cover bg-left"
+          ></div>
+          <div
+            style={{ backgroundImage: `url(${back2})` }}
+            className="bg-cover bg-right"
+          ></div>
+          <div
+            style={{ backgroundImage: `url(${back3})` }}
+            className=" bg-cover bg-top"
+          >
 
-      {/* Main content */}
-      <div className="relative max-w-6xl mx-auto pt-14 pb-24 px-4 grid grid-rows-[auto_1fr] gap-16">
-        {/* Heading */}
-        <div className="flex flex-col items-center relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 text-center mb-2 leading-tight drop-shadow-sm">
-            Why Hire Developers From Our Name
-          </h1>
-          <div className="text-gray-500 text-center text-sm md:text-base max-w-xl">
-            <p>Lorem Ipsum is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been</p>
-            <p>The Industry's Standard Dummy Text Ever Since</p>
           </div>
-        </div>
-
-        {/* Top: image left, text right */}
-        <div className="grid md:grid-cols-2 gap-4 relative z-10 items-center">
-          <div className="flex justify-center items-center">
-            <div className="bg-white relative flex items-end justify-center w-[340px] h-[310px] rounded-[125px] shadow-xl border-4 border-[#f4f5fa] overflow-visible">
-              <img
-                src={ob}
-                alt="Developer illustration"
-                className="w-[275px] h-[230px] mb-4 object-contain z-10"
-                draggable="false"
-              />
+          <div className="relative bg-cover bg-top" style={{ backgroundImage: `url(${back3})`, height: '300px' }}>
+            <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
+              <img src={back4} alt="Decorative" className="w-[60px] h-auto" />
             </div>
           </div>
 
-          <div className="px-4 md:px-0 flex flex-col gap-8">
-            <h2 className="text-[2rem] md:text-[1.8rem] font-semibold text-gray-900 mb-1">High Quality/Cost Ratio</h2>
-            <ul className="flex flex-col gap-6">
-              <li className="flex items-start gap-3">
-                <CheckCircle className="mt-1 shrink-0" />
-                <span>
-                  <span className="font-semibold text-gray-800 block leading-tight">Hire Silicon Valley Caliber At Half The Cost</span>
-                  <span className="block text-gray-500 text-[15px] mt-[2px]">Hire The Top 1% Of 1.5 Million+ Developers From 150+ Countries Who Have Applied To Turing.</span>
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CrossCircle className="mt-1 shrink-0" />
-                <span>
-                  <span className="font-semibold text-gray-800 block leading-tight">100+ Skills Available</span>
-                  <span className="block text-gray-500 text-[15px] mt-[2px]">Hire The Top 1% Of 1.5 Million+ Developers From 150+ Countries Who Have Applied To Turing.</span>
-                </span>
-              </li>
-            </ul>
-          </div>
+
+
         </div>
 
-        {/* Bottom: text left, image right */}
-        <div className="grid md:grid-cols-2 gap-4 items-center mt-8 relative z-10">
-          <div className="pl-0 pr-0 md:pl-4">
-            <h2 className="text-[2rem] md:text-[1.8rem] font-semibold text-gray-900 mb-1">Rigorous Vetting</h2>
-            <ul className="flex flex-col gap-6 mt-2">
-              <li className="flex items-start gap-3">
-                <CheckCircle className="mt-1 shrink-0" />
-                <span>
-                  <span className="font-semibold text-gray-800 block leading-tight">5+ Hours Of Tests And Interviews</span>
-                  <span className="block text-gray-500 text-[15px] mt-[2px]">Hire The Top 1% Of 1.5 Million+ Developers From 150+ Countries Who Have Applied To Turing.</span>
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CrossCircle className="mt-1 shrink-0" />
-                <span>
-                  <span className="font-semibold text-gray-800 block leading-tight">Seniority Tests</span>
-                  <span className="block text-gray-500 text-[15px] mt-[2px]">Hire The Top 1% Of 1.5 Million+ Developers From 150+ Countries Who Have Applied To Turing.</span>
-                </span>
-              </li>
-            </ul>
+
+        {/* Main content */}
+        <div className="relative max-w-6xl mx-auto pt-14 pb-24 px-4 grid grid-rows-[auto_1fr] gap-16">
+          {/* Heading */}
+          <div className="flex flex-col items-center relative z-10">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 text-center mb-2 leading-tight drop-shadow-sm">
+              Why Hire Developers From Our Name
+            </h1>
+            <div className="text-gray-500 text-center text-sm md:text-base max-w-xl">
+              <p>Lorem Ipsum is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has Been</p>
+              <p>The Industry's Standard Dummy Text Ever Since</p>
+            </div>
           </div>
-          <div className="flex justify-center items-center">
-            <div className="bg-white flex items-center justify-center w-[290px] h-[250px] rounded-full shadow-xl border-4 border-[#f4f5fa] relative">
-              <img
-                src={ob1}
-                alt="Developer illustration 2"
-                className="w-[275px] h-[230px] mb-4 object-contain z-10"
-                draggable="false"
-                style={{ marginTop: 15 }}
-              />
-              <div className="absolute left-0 right-0 bottom-2 mx-auto w-[140px] h-3 rounded-full bg-[#d1fae5] blur-sm opacity-80 z-0" />
+
+          {/* Top: image left, text right */}
+          <div className="grid md:grid-cols-2 gap-4 relative z-10 items-center">
+            <div className="flex justify-center items-center">
+              <div className="bg-white relative flex items-end justify-center w-[340px] h-[310px] rounded-[125px] shadow-xl border-4 border-[#f4f5fa] overflow-visible">
+                <img
+                  src={ob}
+                  alt="Developer illustration"
+                  className="w-[275px] h-[230px] mb-4 object-contain z-10"
+                  draggable="false"
+                />
+              </div>
+            </div>
+
+            <div className="px-4 md:px-0 flex flex-col gap-8">
+              <h2 className="text-[2rem] md:text-[1.8rem] font-semibold text-gray-900 mb-1">High Quality/Cost Ratio</h2>
+              <ul className="flex flex-col gap-6">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="mt-1 shrink-0" />
+                  <span>
+                    <span className="font-semibold text-gray-800 block leading-tight">Hire Silicon Valley Caliber At Half The Cost</span>
+                    <span className="block text-gray-500 text-[15px] mt-[2px]">Hire The Top 1% Of 1.5 Million+ Developers From 150+ Countries Who Have Applied To Turing.</span>
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CrossCircle className="mt-1 shrink-0" />
+                  <span>
+                    <span className="font-semibold text-gray-800 block leading-tight">100+ Skills Available</span>
+                    <span className="block text-gray-500 text-[15px] mt-[2px]">Hire The Top 1% Of 1.5 Million+ Developers From 150+ Countries Who Have Applied To Turing.</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom: text left, image right */}
+          <div className="grid md:grid-cols-2 gap-4 items-center mt-8 relative z-10">
+            <div className="pl-0 pr-0 md:pl-4">
+              <h2 className="text-[2rem] md:text-[1.8rem] font-semibold text-gray-900 mb-1">Rigorous Vetting</h2>
+              <ul className="flex flex-col gap-6 mt-2">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="mt-1 shrink-0" />
+                  <span>
+                    <span className="font-semibold text-gray-800 block leading-tight">5+ Hours Of Tests And Interviews</span>
+                    <span className="block text-gray-500 text-[15px] mt-[2px]">Hire The Top 1% Of 1.5 Million+ Developers From 150+ Countries Who Have Applied To Turing.</span>
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CrossCircle className="mt-1 shrink-0" />
+                  <span>
+                    <span className="font-semibold text-gray-800 block leading-tight">Seniority Tests</span>
+                    <span className="block text-gray-500 text-[15px] mt-[2px]">Hire The Top 1% Of 1.5 Million+ Developers From 150+ Countries Who Have Applied To Turing.</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div className="flex justify-center items-center">
+              <div className="bg-white flex items-center justify-center w-[290px] h-[250px] rounded-full shadow-xl border-4 border-[#f4f5fa] relative">
+                <img
+                  src={ob1}
+                  alt="Developer illustration 2"
+                  className="w-[275px] h-[230px] mb-4 object-contain z-10"
+                  draggable="false"
+                  style={{ marginTop: 15 }}
+                />
+                <div className="absolute left-0 right-0 bottom-2 mx-auto w-[140px] h-3 rounded-full bg-[#d1fae5] blur-sm opacity-80 z-0" />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
     </div>
 
