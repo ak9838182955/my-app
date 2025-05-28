@@ -86,9 +86,7 @@ function App() {
     </svg>
   );
 
-  const AccentSquiggle = () => (
-    <svg width="32" height="62" className="absolute right-8 top-2 md:right-[36px] md:top-[330px] z-10" viewBox="0 0 32 62" fill="none"><path d="M2 2 C16 50, 30 12, 18 30 S36 50, 6 60" stroke="#222" strokeWidth="2" fill="none" /></svg>
-  );
+
   return (
     <div className="min-h-screen w-full flex flex-col">
 
@@ -135,7 +133,7 @@ function App() {
       </div>
 
       <header className="w-full flex flex-col md:flex-row items-center px-4 md:px-12 py-4 bg-white bg-opacity-80 backdrop-blur-lg shadow-sm gap-3 md:gap-0 relative z-10">
-
+        {/* Logo */}
         <div className="flex items-center md:mr-10 mb-2 md:mb-0">
           <div className="rounded-full bg-emerald-500 w-8 h-8 flex items-center justify-center mr-2">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -146,10 +144,10 @@ function App() {
           <span className="text-xl font-bold text-black">Logoipsum</span>
         </div>
 
-
+        {/* Spacer */}
         <div className="flex-1"></div>
 
-
+        {/* Mobile menu toggle button */}
         <button
           className="md:hidden absolute right-4 top-4 p-2 rounded hover:bg-gray-100"
           aria-label="Open navigation menu"
@@ -162,8 +160,8 @@ function App() {
           </svg>
         </button>
 
-
-        <nav className="w-full md:w-auto hidden md:flex">
+        {/* Desktop Navigation */}
+        <nav className="w-full md:w-auto hidden md:flex items-center">
           <ul className="flex flex-wrap md:flex-nowrap justify-center md:justify-start gap-3 md:gap-8 text-gray-700 font-medium text-base">
             {navLinks.map((item) => (
               <li key={item.name} className="relative group cursor-pointer">
@@ -171,14 +169,33 @@ function App() {
               </li>
             ))}
           </ul>
+
+          {/* Desktop Button */}
+          <button className="border border-emerald-500 text-emerald-500 rounded px-4 py-2 md:px-5 md:py-2 md:ml-6 flex items-center gap-2 w-full md:w-auto justify-center hover:bg-emerald-50 transition mt-2 md:mt-0">
+            Get In Touch
+            <svg width="17" height="17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h11M9.5 5l4 3.5-4 3.5" stroke="#14b8a6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </button>
         </nav>
 
-
-        <button className="border border-emerald-500 text-emerald-500 rounded px-4 py-2 md:px-5 md:py-2 md:ml-6 flex items-center gap-2 w-full md:w-auto justify-center hover:bg-emerald-50 transition mt-2 md:mt-0">
-          Get In Touch
-          <svg width="17" height="17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h11M9.5 5l4 3.5-4 3.5" stroke="#14b8a6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-        </button>
+        {/* Mobile Navigation */}
+        {navOpen && (
+          <div className="w-full md:hidden flex flex-col gap-3 mt-2 text-center bg-white rounded shadow p-4 z-20 absolute top-full left-0">
+            <ul className="flex flex-col gap-2 text-gray-700 font-medium text-base">
+              {navLinks.map((item) => (
+                <li key={item.name} className="cursor-pointer">
+                  {item.name} {item.dropdown && <span className="ml-1">▼</span>}
+                </li>
+              ))}
+            </ul>
+            {/* Mobile Button */}
+            <button className="border border-emerald-500 text-emerald-500 rounded px-4 py-2 flex items-center gap-2 justify-center hover:bg-emerald-50 transition">
+              Get In Touch
+              <svg width="17" height="17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h11M9.5 5l4 3.5-4 3.5" stroke="#14b8a6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </button>
+          </div>
+        )}
       </header>
+
 
       <main className="flex flex-col md:flex-row flex-1 items-center justify-center px-2 sm:px-4 md:px-8 py-8 md:py-20 gap-6 w-full bg-[url('back.png')] bg-cover bg-center" >
 
@@ -202,25 +219,49 @@ function App() {
           </div>
         </section>
 
-        <section className="bg-white bg-opacity-90 rounded-xl shadow-lg p-4 xs:p-6 md:p-8 w-full xs:w-[370px] md:w-[420px] max-w-full flex flex-col gap-4">
+        <section className="bg-white bg-opacity-90 rounded-xl shadow-lg p-4 xs:p-6 md:p-8 w-full xs:w-[370px] md:w-[500px] max-w-full flex flex-col gap-4">
           <h2 className="text-lg xs:text-xl font-bold mb-0 text-gray-900 text-center">Create Your Team</h2>
           <div className="text-gray-500 text-xs xs:text-sm mb-2 text-center">Lorem Ipsum is Simply Dummy Text of The Printing</div>
-          <form className="flex flex-col gap-3">
-            <div className="flex flex-col xs:flex-row gap-3">
-              <input type="text" placeholder="Enter Your Name" className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-emerald-400" />
-              <input type="email" placeholder="Enter You Email" className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-emerald-400" />
+
+          <form className="flex flex-col gap-4">
+            {/* Full Name + Email */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-700 mb-1">Full Name</label>
+                <input type="text" placeholder="Enter Your Name" className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-emerald-400" />
+              </div>
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-700 mb-1">Email Address</label>
+                <input type="email" placeholder="Enter Your Email" className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-emerald-400" />
+              </div>
             </div>
-            <div className="flex flex-col xs:flex-row gap-3">
-              <input type="text" placeholder="Enter You Number" className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-emerald-400" />
-              <input type="text" placeholder="Enter You Country" className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-emerald-400" />
+
+            {/* Phone + Country */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-700 mb-1">Phone No</label>
+                <input type="text" placeholder="Enter Your Number" className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-emerald-400" />
+              </div>
+              <div className="flex flex-col">
+                <label className="text-sm text-gray-700 mb-1">Country</label>
+                <input type="text" placeholder="Enter Your Country" className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-emerald-400" />
+              </div>
             </div>
-            <textarea placeholder="Enter You Project Brief" rows={3} className="border border-gray-300 rounded px-3 py-2 text-sm resize-none focus:outline-emerald-400" />
-            <button type="submit" className="bg-rose-400 mt-3 text-white px-4 py-2 xs:px-6 xs:py-3 rounded-lg w-full font-semibold flex items-center justify-center gap-2 shadow hover:bg-rose-500 transition">
+
+            {/* Project Brief */}
+            <div className="flex flex-col">
+              <label className="text-sm text-gray-700 mb-1">Project Brief</label>
+              <textarea placeholder="Enter Your Project Brief" rows={4} className="border border-gray-300 rounded px-3 py-2 text-sm resize-none focus:outline-emerald-400" />
+            </div>
+
+            {/* Button */}
+            <button type="submit" className="bg-rose-400 mt-3 text-white px-4 py-3 rounded-lg w-full font-semibold flex items-center justify-center gap-2 shadow hover:bg-rose-500 transition">
               Hire Software Developer
               <svg width="17" height="17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h11M9.5 5l4 3.5-4 3.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
           </form>
         </section>
+
       </main>
 
       {/* Main decorative SVG accents */}
@@ -228,7 +269,7 @@ function App() {
       <BgDots className="absolute right-[5vw] top-0 w-[230px] h-[110px] -z-10" />
       <BgDots className="absolute left-0 bottom-0 w-[150px] h-[100px] -z-10" style={{ opacity: 0.15 }} />
       <BgCornerPink />
-      <AccentSquiggle />
+
 
       {/* Main Wrapper */}
       <div className="relative w-full">
@@ -342,7 +383,7 @@ function App() {
           </div>
         </div>
       </div>
-  <TechnologyCompetency />
+      <TechnologyCompetency />
     </div>
 
 
